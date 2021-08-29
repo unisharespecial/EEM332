@@ -1,0 +1,39 @@
+MPLINK 4.37, Linker
+Linker Map File - Created Wed May 08 16:35:40 2013
+
+                                 Section Info
+                  Section       Type    Address   Location Size(Bytes)
+                ---------  ---------  ---------  ---------  ---------
+                   .org_0       code   0x000000    program   0x000048
+
+
+
+                              Program Memory Usage 
+                               Start         End      
+                           ---------   ---------      
+                            0x000000    0x000023      
+            36 out of 1093 program addresses used, program memory utilization is 3%
+
+
+
+                              Symbols - Sorted by Name
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    BASLA   0x000006    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                   BUTTON   0x000008    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                       D1   0x00001f    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                       D2   0x00001d    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                    DELAY   0x00001b    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+
+
+
+                              Symbols - Sorted by Address
+                     Name    Address   Location    Storage File                     
+                ---------  ---------  ---------  --------- ---------                
+                    BASLA   0x000006    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                   BUTTON   0x000008    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                    DELAY   0x00001b    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                       D2   0x00001d    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+                       D1   0x00001f    program     static C:\Documents and Settings\KULLANICI\Desktop\lab7\lab8.asm
+
+

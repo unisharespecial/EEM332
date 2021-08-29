@@ -1,0 +1,361 @@
+MPASM  5.51            YENI METIN BELGESI.ASM   5-23-2014  12:56:38         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (LIST)
+                      00001 LIST p=16F84A
+Warning[205]: Found directive in column 1. (INCLUDE)
+                      00002 INCLUDE "P16F84A.INC"
+                      00001         LIST
+                      00002 
+                      00003 ;==========================================================================
+                      00004 ;  MPASM PIC16F84A processor include
+                      00005 ; 
+                      00006 ;  (c) Copyright 1999-2013 Microchip Technology, All rights reserved
+                      00007 ;==========================================================================
+                      00008 
+                      00208         LIST
+Warning[205]: Found directive in column 1. (__CONFIG)
+2007   3FF1           00003 __CONFIG _CP_OFF & _WDT_OFF & _PWRTE_ON & _XT_OSC
+Warning[205]: Found directive in column 1. (ORG)
+0000                  00004 ORG 0x00
+  0000000C            00005 SAYAC3 EQU H'0C'
+  0000000D            00006 SAYAC4 EQU H'0D'
+  0000000E            00007 SAYACY EQU H'0E'
+  0000000E            00008 SAYAC EQU H'0E'
+Warning[203]: Found opcode in column 1. (CLRF)
+0000   0186           00009 CLRF PORTB
+Warning[203]: Found opcode in column 1. (BSF)
+0001   1683           00010 BSF STATUS,5
+Warning[203]: Found opcode in column 1. (CLRF)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0186           00011 CLRF TRISB
+Warning[203]: Found opcode in column 1. (BCF)
+0003   1283           00012 BCF STATUS,5
+Warning[203]: Found opcode in column 1. (BCF)
+0004   1006           00013 BCF PORTB,0
+                      00014 
+                      00015 
+                      00016 
+0005                  00017 BUTTONTEST1
+Warning[203]: Found opcode in column 1. (BTFSS)
+0005   1C85           00018 BTFSS PORTA,1
+Warning[203]: Found opcode in column 1. (GOTO)
+0006   2808           00019 GOTO BUTTONTEST2
+Warning[203]: Found opcode in column 1. (GOTO)
+0007   280B           00020 GOTO DONGU1
+                      00021 
+0008                  00022 BUTTONTEST2
+Warning[203]: Found opcode in column 1. (BTFSS)
+0008   1D05           00023 BTFSS PORTA,2
+Warning[203]: Found opcode in column 1. (GOTO)
+0009   2805           00024 GOTO BUTTONTEST1
+Warning[203]: Found opcode in column 1. (GOTO)
+000A   2812           00025 GOTO DONGU2
+                      00026 
+                      00027 
+                      00028 
+MPASM  5.51            YENI METIN BELGESI.ASM   5-23-2014  12:56:38         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+                      00029 
+000B                  00030 DONGU1
+Warning[203]: Found opcode in column 1. (MOVF)
+000B   080E           00031 MOVF SAYAC,W
+Warning[203]: Found opcode in column 1. (ANDLW)
+000C   390F           00032 ANDLW B'00001111'
+Warning[203]: Found opcode in column 1. (CALL)
+000D   202B           00033 CALL YUKARI
+Warning[203]: Found opcode in column 1. (MOVWF)
+000E   0086           00034 MOVWF PORTB
+Warning[203]: Found opcode in column 1. (INCF)
+000F   0A8E           00035 INCF SAYAC,F
+Warning[203]: Found opcode in column 1. (CALL)
+0010   203D           00036 CALL GECIKME
+Warning[203]: Found opcode in column 1. (GOTO)
+0011   2805           00037 GOTO BUTTONTEST1
+                      00038 
+0012                  00039 DONGU2
+Warning[203]: Found opcode in column 1. (MOVF)
+0012   080E           00040 MOVF SAYACY,W
+Warning[203]: Found opcode in column 1. (ANDLW)
+0013   390F           00041 ANDLW B'00001111'
+Warning[203]: Found opcode in column 1. (CALL)
+0014   2019           00042 CALL ASAGI
+Warning[203]: Found opcode in column 1. (MOVWF)
+0015   0086           00043 MOVWF PORTB
+Warning[203]: Found opcode in column 1. (INCF)
+0016   0A8E           00044 INCF SAYACY,F
+Warning[203]: Found opcode in column 1. (CALL)
+0017   203D           00045 CALL GECIKME
+Warning[203]: Found opcode in column 1. (GOTO)
+0018   2805           00046 GOTO BUTTONTEST1
+                      00047 
+0019                  00048 ASAGI
+Warning[203]: Found opcode in column 1. (ADDWF)
+0019   0782           00049 ADDWF PCL,F
+Warning[203]: Found opcode in column 1. (RETLW)
+001A   3471           00050 RETLW H'71'
+Warning[203]: Found opcode in column 1. (RETLW)
+001B   3479           00051 RETLW H'79'
+Warning[203]: Found opcode in column 1. (RETLW)
+001C   345E           00052 RETLW H'5E'
+Warning[203]: Found opcode in column 1. (RETLW)
+001D   3439           00053 RETLW H'39'
+Warning[203]: Found opcode in column 1. (RETLW)
+001E   347C           00054 RETLW H'7C'
+Warning[203]: Found opcode in column 1. (RETLW)
+001F   3477           00055 RETLW H'77'
+Warning[203]: Found opcode in column 1. (RETLW)
+0020   346F           00056 RETLW H'6F'
+Warning[203]: Found opcode in column 1. (RETLW)
+0021   347F           00057 RETLW H'7F'
+Warning[203]: Found opcode in column 1. (RETLW)
+MPASM  5.51            YENI METIN BELGESI.ASM   5-23-2014  12:56:38         PAGE  3
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0022   3407           00058 RETLW H'07'
+Warning[203]: Found opcode in column 1. (RETLW)
+0023   347D           00059 RETLW H'7D'
+Warning[203]: Found opcode in column 1. (RETLW)
+0024   346D           00060 RETLW H'6D'
+Warning[203]: Found opcode in column 1. (RETLW)
+0025   3466           00061 RETLW H'66'
+Warning[203]: Found opcode in column 1. (RETLW)
+0026   344F           00062 RETLW H'4F'
+Warning[203]: Found opcode in column 1. (RETLW)
+0027   345B           00063 RETLW H'5B'
+Warning[203]: Found opcode in column 1. (RETLW)
+0028   3406           00064 RETLW H'06'
+Warning[203]: Found opcode in column 1. (RETLW)
+0029   343F           00065 RETLW H'3F'
+Warning[203]: Found opcode in column 1. (GOTO)
+002A   2805           00066 GOTO BUTTONTEST1
+                      00067 
+                      00068 
+002B                  00069 YUKARI
+Warning[203]: Found opcode in column 1. (ADDWF)
+002B   0782           00070 ADDWF PCL,F
+Warning[203]: Found opcode in column 1. (RETLW)
+002C   343F           00071 RETLW H'3F'
+Warning[203]: Found opcode in column 1. (RETLW)
+002D   3406           00072 RETLW H'06'
+Warning[203]: Found opcode in column 1. (RETLW)
+002E   345B           00073 RETLW H'5B'
+Warning[203]: Found opcode in column 1. (RETLW)
+002F   344F           00074 RETLW H'4F'
+Warning[203]: Found opcode in column 1. (RETLW)
+0030   3466           00075 RETLW H'66'
+Warning[203]: Found opcode in column 1. (RETLW)
+0031   346D           00076 RETLW H'6D'
+Warning[203]: Found opcode in column 1. (RETLW)
+0032   347D           00077 RETLW H'7D'
+Warning[203]: Found opcode in column 1. (RETLW)
+0033   3407           00078 RETLW H'07'
+Warning[203]: Found opcode in column 1. (RETLW)
+0034   347F           00079 RETLW H'7F'
+Warning[203]: Found opcode in column 1. (RETLW)
+0035   346F           00080 RETLW H'6F'
+Warning[203]: Found opcode in column 1. (RETLW)
+0036   3477           00081 RETLW H'77'
+Warning[203]: Found opcode in column 1. (RETLW)
+0037   347C           00082 RETLW H'7C'
+Warning[203]: Found opcode in column 1. (RETLW)
+0038   3439           00083 RETLW H'39'
+Warning[203]: Found opcode in column 1. (RETLW)
+0039   345E           00084 RETLW H'5E'
+Warning[203]: Found opcode in column 1. (RETLW)
+003A   3479           00085 RETLW H'79'
+Warning[203]: Found opcode in column 1. (RETLW)
+MPASM  5.51            YENI METIN BELGESI.ASM   5-23-2014  12:56:38         PAGE  4
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+003B   3471           00086 RETLW H'71'
+Warning[203]: Found opcode in column 1. (GOTO)
+003C   2805           00087 GOTO BUTTONTEST1
+                      00088 
+003D                  00089 GECIKME
+Warning[203]: Found opcode in column 1. (MOVLW)
+003D   30FF           00090 MOVLW H'FF'
+Warning[203]: Found opcode in column 1. (MOVWF)
+003E   008C           00091 MOVWF SAYAC3
+                      00092 
+003F                  00093 DONGU3
+Warning[203]: Found opcode in column 1. (MOVLW)
+003F   30FF           00094 MOVLW H'FF'
+Warning[203]: Found opcode in column 1. (MOVWF)
+0040   008D           00095 MOVWF SAYAC4
+                      00096 
+0041                  00097 DONGU4
+Warning[203]: Found opcode in column 1. (DECFSZ)
+0041   0B8D           00098 DECFSZ SAYAC4,F
+Warning[203]: Found opcode in column 1. (GOTO)
+0042   2841           00099 GOTO DONGU4
+Warning[203]: Found opcode in column 1. (DECFSZ)
+0043   0B8C           00100 DECFSZ SAYAC3,F
+Warning[203]: Found opcode in column 1. (GOTO)
+0044   283F           00101 GOTO DONGU3
+Warning[203]: Found opcode in column 1. (RETURN)
+0045   0008           00102 RETURN 
+Warning[205]: Found directive in column 1. (END)
+                      00103 END
+MPASM  5.51            YENI METIN BELGESI.ASM   5-23-2014  12:56:38         PAGE  5
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+ASAGI                             00000019
+BUTTONTEST1                       00000005
+BUTTONTEST2                       00000008
+C                                 00000000
+DC                                00000001
+DONGU1                            0000000B
+DONGU2                            00000012
+DONGU3                            0000003F
+DONGU4                            00000041
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GECIKME                           0000003D
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RA0                               00000000
+RA1                               00000001
+RA2                               00000002
+RA3                               00000003
+RA4                               00000004
+RB0                               00000000
+RB1                               00000001
+RB2                               00000002
+RB3                               00000003
+RB4                               00000004
+RB5                               00000005
+RB6                               00000006
+RB7                               00000007
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+MPASM  5.51            YENI METIN BELGESI.ASM   5-23-2014  12:56:38         PAGE  6
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+RP0                               00000005
+RP1                               00000006
+SAYAC                             0000000E
+SAYAC3                            0000000C
+SAYAC4                            0000000D
+SAYACY                            0000000E
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TMR0IE                            00000005
+TMR0IF                            00000002
+TRISA                             00000085
+TRISA0                            00000000
+TRISA1                            00000001
+TRISA2                            00000002
+TRISA3                            00000003
+TRISA4                            00000004
+TRISB                             00000086
+TRISB0                            00000000
+TRISB1                            00000001
+TRISB2                            00000002
+TRISB3                            00000003
+TRISB4                            00000004
+TRISB5                            00000005
+TRISB6                            00000006
+TRISB7                            00000007
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+YUKARI                            0000002B
+Z                                 00000002
+_CONFIG                           00002007
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_DEVID1                           00002006
+_FOSC_EXTRC                       00003FFF
+_FOSC_HS                          00003FFE
+_FOSC_LP                          00003FFC
+_FOSC_XT                          00003FFD
+_HS_OSC                           00003FFE
+_IDLOC0                           00002000
+_IDLOC1                           00002001
+_IDLOC2                           00002002
+_IDLOC3                           00002003
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDTE_OFF                         00003FFB
+MPASM  5.51            YENI METIN BELGESI.ASM   5-23-2014  12:56:38         PAGE  7
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+_WDTE_ON                          00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+__DEBUG                           1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX
+0040 : XXXXXX---------- ---------------- ---------------- ----------------
+2000 : -------X-------- ---------------- ---------------- ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    70
+Program Memory Words Free:   954
+
+
+Errors   :     0
+Warnings :    75 reported,     0 suppressed
+Messages :     1 reported,     0 suppressed
+
+

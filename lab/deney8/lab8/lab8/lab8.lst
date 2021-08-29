@@ -1,0 +1,208 @@
+MPASM  5.37                          LAB8.ASM   5-8-2013  16:35:39         PAGE  1
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+Warning[205]: Found directive in column 1. (LIST)
+                      00001 LIST P=16F84A
+Warning[205]: Found directive in column 1. (INCLUDE)
+                      00002 INCLUDE P16F84A.INC
+                      00001         LIST
+                      00002 ; P16F84A.INC  Standard Header File, Version 2.00    Microchip Technology, Inc.
+                      00134         LIST
+  0000000C            00003 C1 EQU 0x0C
+  0000000D            00004 C2 EQU 0x0D
+                      00005 
+Warning[203]: Found opcode in column 1. (BSF)
+0000   1683           00006 BSF STATUS,5
+Warning[203]: Found opcode in column 1. (MOVLW)
+0001   3001           00007 MOVLW B'00000001'
+Warning[203]: Found opcode in column 1. (MOVWF)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0002   0085           00008 MOVWF TRISA
+Warning[203]: Found opcode in column 1. (CLRF)
+Message[302]: Register in operand not in bank 0.  Ensure that bank bits are correct.
+0003   0186           00009 CLRF TRISB
+                      00010 
+Warning[203]: Found opcode in column 1. (BCF)
+0004   1283           00011 BCF STATUS,5
+Warning[203]: Found opcode in column 1. (CLRF)
+0005   0186           00012 CLRF PORTB
+                      00013 
+0006                  00014 BASLA
+Warning[203]: Found opcode in column 1. (MOVLW)
+0006   3055           00015 MOVLW B'01010101'
+Warning[203]: Found opcode in column 1. (MOVWF)
+0007   0086           00016 MOVWF PORTB
+                      00017 
+0008                  00018 BUTTON
+                      00019 
+Warning[203]: Found opcode in column 1. (BTFSS)
+0008   1C05           00020 BTFSS PORTA,0
+                      00021 
+Warning[203]: Found opcode in column 1. (GOTO)
+0009   2806           00022 GOTO BASLA
+Warning[203]: Found opcode in column 1. (MOVLW)
+000A   30AA           00023 MOVLW B'10101010'
+Warning[203]: Found opcode in column 1. (MOVWF)
+000B   0086           00024 MOVWF PORTB
+                      00025 
+Warning[203]: Found opcode in column 1. (CALL)
+000C   201B           00026 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+000D   201B           00027 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+000E   201B           00028 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+000F   201B           00029 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+MPASM  5.37                          LAB8.ASM   5-8-2013  16:35:39         PAGE  2
+
+
+LOC  OBJECT CODE     LINE SOURCE TEXT
+  VALUE
+
+0010   201B           00030 CALL DELAY
+                      00031 
+Warning[203]: Found opcode in column 1. (CALL)
+0011   201B           00032 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+0012   201B           00033 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+0013   201B           00034 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+0014   201B           00035 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+0015   201B           00036 CALL DELAY
+                      00037 
+Warning[203]: Found opcode in column 1. (CALL)
+0016   201B           00038 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+0017   201B           00039 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+0018   201B           00040 CALL DELAY
+Warning[203]: Found opcode in column 1. (CALL)
+0019   201B           00041 CALL DELAY
+                      00042 
+Warning[203]: Found opcode in column 1. (GOTO)
+001A   2808           00043 GOTO BUTTON 
+                      00044 
+001B                  00045 DELAY
+                      00046 
+Warning[203]: Found opcode in column 1. (MOVLW)
+001B   30FF           00047 MOVLW .255
+Warning[203]: Found opcode in column 1. (MOVWF)
+001C   008D           00048 MOVWF C2
+001D                  00049 D2
+001D   30FF           00050         MOVLW .255
+001E   008C           00051         MOVWF C1
+Warning[207]: Found label after column 1. (D1)
+001F                  00052  D1 
+001F   0B8C           00053  DECFSZ C1,f
+0020   281F           00054  GOTO D1
+Warning[203]: Found opcode in column 1. (DECFSZ)
+0021   0B8D           00055 DECFSZ C2,f
+Warning[203]: Found opcode in column 1. (GOTO)
+0022   281D           00056 GOTO D2
+                      00057 
+Warning[203]: Found opcode in column 1. (RETURN)
+0023   0008           00058 RETURN
+                      00059 
+Warning[205]: Found directive in column 1. (END)
+                      00060 END
+MPASM  5.37                          LAB8.ASM   5-8-2013  16:35:39         PAGE  3
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+BASLA                             00000006
+BUTTON                            00000008
+C                                 00000000
+C1                                0000000C
+C2                                0000000D
+D1                                0000001F
+D2                                0000001D
+DC                                00000001
+DELAY                             0000001B
+EEADR                             00000009
+EECON1                            00000088
+EECON2                            00000089
+EEDATA                            00000008
+EEIE                              00000006
+EEIF                              00000004
+F                                 00000001
+FSR                               00000004
+GIE                               00000007
+INDF                              00000000
+INTCON                            0000000B
+INTE                              00000004
+INTEDG                            00000006
+INTF                              00000001
+IRP                               00000007
+NOT_PD                            00000003
+NOT_RBPU                          00000007
+NOT_TO                            00000004
+OPTION_REG                        00000081
+PCL                               00000002
+PCLATH                            0000000A
+PORTA                             00000005
+PORTB                             00000006
+PS0                               00000000
+PS1                               00000001
+PS2                               00000002
+PSA                               00000003
+RBIE                              00000003
+RBIF                              00000000
+RD                                00000000
+RP0                               00000005
+RP1                               00000006
+STATUS                            00000003
+T0CS                              00000005
+T0IE                              00000005
+T0IF                              00000002
+T0SE                              00000004
+TMR0                              00000001
+TRISA                             00000085
+TRISB                             00000086
+W                                 00000000
+WR                                00000001
+WREN                              00000002
+WRERR                             00000003
+MPASM  5.37                          LAB8.ASM   5-8-2013  16:35:39         PAGE  4
+
+
+SYMBOL TABLE
+  LABEL                             VALUE 
+
+Z                                 00000002
+_CP_OFF                           00003FFF
+_CP_ON                            0000000F
+_HS_OSC                           00003FFE
+_LP_OSC                           00003FFC
+_PWRTE_OFF                        00003FFF
+_PWRTE_ON                         00003FF7
+_RC_OSC                           00003FFF
+_WDT_OFF                          00003FFB
+_WDT_ON                           00003FFF
+_XT_OSC                           00003FFD
+__16F84A                          00000001
+__DEBUG                           1
+
+
+MEMORY USAGE MAP ('X' = Used,  '-' = Unused)
+
+0000 : XXXXXXXXXXXXXXXX XXXXXXXXXXXXXXXX XXXX------------ ----------------
+
+All other memory blocks unused.
+
+Program Memory Words Used:    36
+Program Memory Words Free:   988
+
+
+Errors   :     0
+Warnings :    36 reported,     0 suppressed
+Messages :     2 reported,     0 suppressed
+
+
